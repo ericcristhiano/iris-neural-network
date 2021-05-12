@@ -12,6 +12,28 @@ For the run tests, just run the file with suffix test_, e.g. `src/onsklearn/test
 py src/onsklearn/test_<file>.py
 ```
 
+If you wish run the visual tests, just run the file without test_ suffix:
+```
+py src/onsklearn/<file>.py
+```
+
+## Visual tests
+After runs the file perceptron, the return must be as:
+
+### Setosa from Virginica 
+This example utilizes the Linear Perceptron, according this show belown.
+![Visual tests](./samples/linear_tests.png)
+
+### Virginica from Versicolor
+This example utilizes the Multilayer Perceptron, according this show belown too.
+![Visual tests](./samples/multilayer_tests.png)
+
+## Graphic visualization
+If you wish generate the graphic of decision region from dataset specified, just run:
+```
+py src/onsklearn/visualization.py
+```
+
 ## Explanation
 The first step is get the graphic of decision region from dataset. And got this:
 ![Decision Region Graphic](./samples/decision_region.png)
