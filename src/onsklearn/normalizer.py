@@ -1,8 +1,18 @@
 import pandas as pd
 from pandas.core.base import NoNewAttributesMixin
 
+
+
 class Normalizer:
   csv_data = 'dataset/iris.csv'  # file from work data
+  ordered_types = [
+    'versicolor',
+    'virginica',
+    'setosa'
+  ]
+
+  def get_type_by_index(index) -> str:
+    return Normalizer.ordered_types[index]
 
   def __init__(self) -> None:
     self.dataset = pd.read_csv(self.csv_data)
