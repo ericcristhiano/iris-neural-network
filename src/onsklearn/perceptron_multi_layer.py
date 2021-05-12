@@ -66,5 +66,8 @@ class PerceptronMultiLayer:
       y_train = self.dataset_train['Species']
       self.mlp.fit(x_train, y_train)
 
+    def get_classifier(self):
+      return self.mlp
+
     def execute(self) -> None:
       return self.__train__()
