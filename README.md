@@ -24,9 +24,7 @@ The first step is get the graphic of decision region from dataset. And got this:
 With the graphic generated, it's possible notice that the dataset diff between setosa and virginica is not linear, instead of virginica from versicolor that according we can see is a linear graphic. It's importante notice that the diff from virginica and versicolor are more difficult to distinguish. 
 
 ### Linear Perceptron
-The [Linear Perceptron](https://en.wikipedia.org/wiki/Perceptron) is an algorithm linear classifier, therefore the dataset fitted must be linearly separable. According to shown below, the algorithm function work with binary options, and nothing besides that.
-![Linear Perceptron](./samples/perceptron-linear.svg)
-Thus, we can observe that a possible implementation for "Setosa from Virginica" can be this classifier.
+The [Linear Perceptron](https://en.wikipedia.org/wiki/Perceptron) is an algorithm linear classifier, therefore the dataset fitted must be linearly separable. According to shown below, the algorithm function work with binary options, and nothing besides that. Thus, we can observe that a possible implementation for "Setosa from Virginica" can be this classifier.
 
 ### MultiLayer Perceptron
 Different of Linear Perceptron the [MultiLayer Perceptron](https://en.wikipedia.org/wiki/Multilayer_perceptron) is a feedforward artificial neural network, that way this classifier uses multiple layers of the perceptrons.
