@@ -63,10 +63,7 @@ class PerceptronMultiLayer:
     '''
     def __train__(self):
       x_train = self.dataset_train.loc[:, ['SepalLengthCm', 'SepalWidthCm', 'PetalLengthCm', 'PetalWidthCm']]
-      print(x_train)
-      
       y_train = self.dataset_train['Species']
-      print(y_train)
       self.mlp.fit(x_train, y_train)
 
     def execute(self) -> None:
