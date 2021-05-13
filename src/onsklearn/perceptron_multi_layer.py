@@ -8,7 +8,7 @@ class PerceptronMultiLayer:
 
     def __setup__(self) -> None:
       self.mlp = MLPClassifier(
-        hidden_layer_sizes=10, 
+        hidden_layer_sizes=1,
         learning_rate_init=0.01, 
         max_iter=500, 
         random_state=105
@@ -39,7 +39,7 @@ class PerceptronMultiLayer:
         expected = str(Normalizer.get_type_by_index(y_test.values[i]))
         returned = str(Normalizer.get_type_by_index(self.mlp.predict([x])[0]))
 
-        print(f'with {current} is expected {expected} and was returned {returned}')
+        print(f'with {current} is expected "{expected}" and was returned "{returned}"')
 
     def get_classifier(self):
       return self.mlp

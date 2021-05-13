@@ -38,7 +38,7 @@ class PerceptronLinear:
         expected = str(Normalizer.get_type_by_index(y_test.values[i]))
         returned = str(Normalizer.get_type_by_index(self.mlp.predict([x])[0]))
 
-        print(f'with {current} is expected {expected} and was returned {returned}')
+        print(f'with {current} is expected "{expected}" and was returned "{returned}"')
 
     def execute(self) -> None:
       return self.__train__()
