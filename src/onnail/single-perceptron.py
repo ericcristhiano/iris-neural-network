@@ -1,10 +1,5 @@
 import csv
 
-
-def step_function(result):
-    return 1 if result >= 0 else 0
-
-
 class Perceptron:
     def __init__(self, number_of_inputs, learning_rate):
         self.__number_of_inputs = number_of_inputs
@@ -29,22 +24,25 @@ class Perceptron:
                 self.__calculate_weights(total_error, x_group)
             epochs += 1
 
-    def fit(self, x_group):
-        summation = self.__bias_input * self.__bias_weight
-        for index, x in enumerate(x_group):
-            summation += x * self.__weights[index]
-        return step_function(summation)
-
     def __calculate_weights(self, total_error, x_group):
+        self.__bias_weight += total_error * self.__bias_input * self.__learning_rate
         for i in range(self.__number_of_inputs):
             self.__weights[i] += total_error * x_group[i] * self.__learning_rate
-            self.__bias_weight += total_error * self.__bias_input * self.__learning_rate
 
     def __calculate_y(self, x_group):
         summation = self.__bias_input * self.__bias_weight
         for index, x in enumerate(x_group):
             summation += x * self.__weights[index]
         return step_function(summation)
+
+    def predict(self, x_group):
+        summation = self.__bias_input * self.__bias_weight
+        for index, x in enumerate(x_group):
+            summation += x * self.__weights[index]
+        return step_function(summation)
+
+def step_function(result):
+    return 1 if result >= 0 else 0
 
 
 with open('dataset/iris.csv', 'r') as file:
@@ -69,6 +67,6 @@ if __name__ == '__main__':
     test_dataset = iris_setosa_dataset[35:] + iris_virginica_dataset[35:]
 
     for iris, expected in test_dataset:
-        fit = perceptron.fit(iris)
+        predict = perceptron.predict(iris)
         iris_name = "Iris-setosa" if expected == IRIS_SETOSA_VALUE else "Iris-virginica"
-        print("Entrada: {}\t | Esperado: {} ({})\t | Obtido: {}\t Acerto: {}".format(iris, expected, iris_name, fit, fit == expected))
+        print("Entrada: {}\t | Esperado: {} ({})\t | Obtido: {}\t Acerto: {}".format(iris, expected, iris_name, predict, predict == expected))
